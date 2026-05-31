@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MediaTek86
 {
-    public partial class Form1 : Form
+    public partial class FrmMediaTek86 : Form
     {
-        public Form1()
+        public FrmMediaTek86()
         {
             InitializeComponent();
         }

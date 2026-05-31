@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MediaTek86.view;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,8 @@ namespace MediaTek86
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new FrmMediaTek86());
+            //Application.Run(new FrmAbsences());
         }
     }
 }
