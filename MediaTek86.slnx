@@ -1,4 +1,6 @@
 <Solution>
-  <Project Path="../Habilitations2024Installeur/Habilitations2024Installeur.vdproj" Type="Installer" />
+  <Project Path="../Habilitations2024Installeur/Habilitations2024Installeur.vdproj" Type="Installer">
+    <Build />
+  </Project>
   <Project Path="MediaTek86.csproj" Id="f08850bc-6094-4f4a-8d01-33f8478aee8f" />
 </Solution>

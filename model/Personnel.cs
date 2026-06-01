@@ -14,7 +14,7 @@ namespace MediaTek86.model
         public string Prenom { get; set; }
         public string Tel { get; set; }
         public string Mail { get; set; }
-        public Service Idservice { get; set; }
+        public Service Service { get; set; }
 
         /// <summary>
         /// Constructeur de la classe Personnel
@@ -32,7 +32,7 @@ namespace MediaTek86.model
             Prenom = prenom;
             Tel = tel;
             Mail = mail;
-            Idservice = idservice;
+            Service = idservice;
         }
     }
 }

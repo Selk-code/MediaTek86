@@ -89,9 +89,11 @@
             this.btnEnregPersonnel.TabIndex = 9;
             this.btnEnregPersonnel.Text = "enregistrer";
             this.btnEnregPersonnel.UseVisualStyleBackColor = true;
+            this.btnEnregPersonnel.Click += new System.EventHandler(this.btnEnregPersonnel_Click);
             // 
             // cboService
             // 
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboService.FormattingEnabled = true;
             this.cboService.Location = new System.Drawing.Point(354, 71);
             this.cboService.Name = "cboService";
@@ -196,6 +198,7 @@
             this.btnGererAbsence.TabIndex = 3;
             this.btnGererAbsence.Text = "gérer les absences";
             this.btnGererAbsence.UseVisualStyleBackColor = true;
+            this.btnGererAbsence.Click += new System.EventHandler(this.btnGererAbsence_Click);
             // 
             // btnSupprimerPersonnel
             // 
@@ -214,12 +217,14 @@
             this.btnModifierPersonnel.TabIndex = 1;
             this.btnModifierPersonnel.Text = "modifier";
             this.btnModifierPersonnel.UseVisualStyleBackColor = true;
+            this.btnModifierPersonnel.Click += new System.EventHandler(this.btnModifierPersonnel_Click);
             // 
             // dgvPersonnels
             // 
             this.dgvPersonnels.AllowUserToAddRows = false;
             this.dgvPersonnels.AllowUserToDeleteRows = false;
             this.dgvPersonnels.AllowUserToResizeRows = false;
+            this.dgvPersonnels.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvPersonnels.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPersonnels.Location = new System.Drawing.Point(6, 19);
             this.dgvPersonnels.MultiSelect = false;

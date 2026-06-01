@@ -27,6 +27,10 @@ namespace MediaTek86.dal
             access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Méthode récupérant et retournant les services
+        /// </summary>
+        /// <returns></returns>
         public List<Service> GetLesServices()
         {
             List<Service> LesServices = new List<Service>();
@@ -41,6 +45,7 @@ namespace MediaTek86.dal
                         foreach (Object[] record in records)
                         {
                             Service service = new Service(Convert.ToInt32(record[0]), Convert.ToString(record[1]));
+                            LesServices.Add(service);
                         }
                     }
                 }
@@ -50,7 +55,8 @@ namespace MediaTek86.dal
                     Environment.Exit(0);
                 }
             }
-            return null;
+
+            return LesServices;
         }
     }
 }
