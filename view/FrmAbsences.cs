@@ -91,7 +91,7 @@ namespace MediaTek86.view
             }
             else
             {
-                grbAjoutAbsence.Text = "ajouter un personnel";
+                grbAjoutAbsence.Text = "ajouter une absence";
                
             }
         }
