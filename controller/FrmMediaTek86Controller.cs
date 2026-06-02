@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.controller
 {
+    /// <summary>
+    /// Contrôleur de FrmMediaTek86
+    /// </summary>
     public class FrmMediaTek86Controller
     {
         /// <summary>
@@ -43,18 +46,6 @@ namespace MediaTek86.controller
         {
             return personnelAccess.GetLesPersonnels();
         }
-
-        /*
-        /// <summary>
-        /// Récupère et retourne les infos des motifs
-        /// </summary>
-        /// <returns></returns>
-        public List<Motif> GetLesMotifs()
-        {
-            return motifAccess.GetLesMotifs();
-        }
-
-        */
 
         /// <summary>
         /// Récupère et retourne les infos des services

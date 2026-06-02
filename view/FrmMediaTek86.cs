@@ -20,12 +20,12 @@ namespace MediaTek86
     {
 
         /// <summary>
-        /// Objet bindingsource pour la liste des personnels
+        /// Objet gérant la liste des personnels
         /// </summary>
         private BindingSource bdgPersonnels = new BindingSource();
 
         /// <summary>
-        /// Objet bindingsource pour la liste des services
+        /// Objet gérant la liste des services
         /// </summary>
         private BindingSource bdgServices = new BindingSource();
 
@@ -102,7 +102,7 @@ namespace MediaTek86
         }
 
         /// <summary>
-        /// Enrengistrement de la modification ou de l'ajout d'un personnel
+        /// Enregistrement de la modification ou de l'ajout d'un personnel
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

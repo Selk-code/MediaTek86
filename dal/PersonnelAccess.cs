@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.dal
 {
+    /// <summary>
+    /// Classe gérant les demandes concernant les personnels
+    /// </summary>
     public class PersonnelAccess
     {
 
@@ -86,7 +89,7 @@ namespace MediaTek86.dal
         /// <summary>
         /// Ajout d'un personnel
         /// </summary>
-        /// <param name="personnel"></param>
+        /// <param name="personnel">Objet contenant les nouvelles informations du nouveau personnel</param>
         public void AddPersonnel(Personnel personnel)
         {
             if (access.Manager != null)
@@ -143,7 +146,11 @@ namespace MediaTek86.dal
             }
         }
 
-
+        /// <summary>
+        /// Vérifie si le login et le mot de passe sont conformes aux informations du responsable
+        /// </summary>
+        /// <param name="responsable">Objet contenant les identifiants du responsable</param>
+        /// <returns>vrai si les identifiants sont corrects</returns>
         public Boolean ControleAuthentification(Responsable responsable)
         {
             if (access.Manager != null)

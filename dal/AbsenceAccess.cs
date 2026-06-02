@@ -8,6 +8,9 @@ using MediaTek86.model;
 
 namespace MediaTek86.dal
 {
+    /// <summary>
+    /// Classe gérant les demandes concernant les absences
+    /// </summary>
     public class AbsenceAccess
     {
 
@@ -24,6 +27,11 @@ namespace MediaTek86.dal
             access = Access.GetInstance();
         }
 
+        /// <summary>
+        /// Récupère et retourne les absences
+        /// </summary>
+        /// <param name="idPersonnel"></param>
+        /// <returns></returns>
         public List<Absence> GetLesAbsences(int idPersonnel)
         {
             
@@ -61,7 +69,11 @@ namespace MediaTek86.dal
             }
             return lesAbsences;
         }
-
+        
+        /// <summary>
+        /// Ajout d'une absence
+        /// </summary>
+        /// <param name="absence">Objet contenant les informations de la nouvelle absence</param>
         public void AddAbsence(Absence absence)
         {
             if (access.Manager != null)
@@ -87,6 +99,11 @@ namespace MediaTek86.dal
             }
         }
 
+        /// <summary>
+        /// Modification d'une absence
+        /// </summary>
+        /// <param name="absence">Objet absence contenant les nouvelles informations</param>
+        /// <param name="ancienneDateDebut">Objet contenant la date de début originale de l'absence afin d'identifier la ligne à modifier dans la base de données</param>
         public void UpdateAbsence(Absence absence, DateTime ancienneDateDebut)
         {
             if (access.Manager != null)
@@ -113,6 +130,10 @@ namespace MediaTek86.dal
             }
         }
 
+        /// <summary>
+        /// Suppression d'une absence
+        /// </summary>
+        /// <param name="absence">Objet contenant les informations de l'absence à supprimer</param>
         public void DelAbsence(Absence absence)
         {
             if (access.Manager != null) 

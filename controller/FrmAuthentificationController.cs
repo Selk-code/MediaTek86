@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.controller
 {
+    /// <summary>
+    /// Contrôleur de la fenêtre d'authentification
+    /// </summary>
     public class FrmAuthentificationController
     {
 

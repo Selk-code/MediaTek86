@@ -12,19 +12,40 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
+    /// <summary>
+    /// Fenêtre affichant les absences d'un personnel et leurs motifs
+    /// </summary>
     public partial class FrmAbsences : Form
     {
 
+        /// <summary>
+        /// Objet gérant la liste des absences
+        /// </summary>
         private BindingSource bdgAbsences = new BindingSource();
 
+        /// <summary>
+        /// Objet gérant la liste des motifs
+        /// </summary>
         private BindingSource bdgMotifs = new BindingSource();
 
+        /// <summary>
+        /// Récupère le personnel sélectionné dans la fenêtre principale
+        /// </summary>
         public Personnel personnelSelectionne {  get; set; }
 
+        /// <summary>
+        /// Contrôleur de la fenêtre
+        /// </summary>
         private FrmAbsenceController controller;
 
+        /// <summary>
+        /// Booléen vérifiant si une modification d'absence est en cours
+        /// </summary>
         private Boolean enCoursDeModifAbs;
 
+        /// <summary>
+        /// Construction des composants graphiques et appel des autres initialisations
+        /// </summary>
         public FrmAbsences()
         {
             InitializeComponent();
@@ -32,12 +53,18 @@ namespace MediaTek86.view
             enCoursModifAbsences(false);
         }
 
+        /// <summary>
+        /// Création du controleur et remplissage de la liste des Motifs
+        /// </summary>
         public void Init()
         {
             controller = new FrmAbsenceController();
             RemplirListeMotifs();
         }
 
+        /// <summary>
+        /// Affichage des absences
+        /// </summary>
         private void RemplirListeAbsences()
         {
 
@@ -69,18 +96,32 @@ namespace MediaTek86.view
             }
         }
 
+        /// <summary>
+        /// Affichage des motifs
+        /// </summary>
         private void RemplirListeMotifs()
         {
             List<Motif> lesMotifs = controller.GetLesMotifs();
             bdgMotifs.DataSource = lesMotifs;
             cboMotif.DataSource = bdgMotifs;
         }
+        
+        /// <summary>
+        /// Remplissage de la liste des absences
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAbsences_Load_1(object sender, EventArgs e)
         {
             RemplirListeAbsences();
             grbAffichageAbsence.Text = $"Absence(s) de {personnelSelectionne.Nom} {personnelSelectionne.Prenom}";
         }
 
+        /// <summary>
+        /// Annulation de l'operation en cours (modification ou ajout d'une absence)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAnnulAbsence_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Voulez-vous vraiment annuler ?", "Confirmation", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -88,7 +129,11 @@ namespace MediaTek86.view
                 enCoursModifAbsences(false);
             }
         }
-
+        /// <summary>
+        /// Enregistrement de la modification ou l'ajout d'une absence en évitant les chevauchements
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnEnregAbsence_Click(object sender, EventArgs e)
         {
             if (dtpDebut.Value.Date <= dtpFin.Value.Date)
@@ -156,10 +201,15 @@ namespace MediaTek86.view
             }
             else
             {
-                MessageBox.Show("La date de début ne peut être postérieure à la date de fin de l'absence", "Information");
+                MessageBox.Show("La date de début ne peut être postérieure à la date de fin de l'absence, veuillez choisir d'autres dates.", "Information");
             }
         }
 
+        /// <summary>
+        /// Modification d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModifierAbsence_Click(object sender, EventArgs e)
         {
             if (dgvAbsences.SelectedRows.Count > 0) 
@@ -175,7 +225,11 @@ namespace MediaTek86.view
                 MessageBox.Show("Une absence doit être sélectionnée.", "Information");
             }
         }
-
+        /// <summary>
+        /// Suppression d'une absence
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSupprimerAbsence_Click(object sender, EventArgs e)
         {
             if (dgvAbsences.SelectedRows.Count > 0)

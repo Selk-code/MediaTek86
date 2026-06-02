@@ -13,6 +13,9 @@ using System.Windows.Forms;
 
 namespace MediaTek86.view
 {
+    /// <summary>
+    /// Fenêtre d'authentification
+    /// </summary>
     public partial class FrmAuthentification : Form
     {
         
@@ -41,6 +44,11 @@ namespace MediaTek86.view
             
         }
 
+        /// <summary>
+        /// Demande au contrôleur de controler l'authentification
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConnecter_Click(object sender, EventArgs e)
         {
             string login = txtLogin.Text;
@@ -67,8 +75,6 @@ namespace MediaTek86.view
 
             }
         }
-
-       
 
         private void FrmAuthentification_Shown(object sender, EventArgs e)
         {

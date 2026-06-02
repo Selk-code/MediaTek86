@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.controller
 {
+    /// <summary>
+    /// Contrôleur de FrmAbsence
+    /// </summary>
     public class FrmAbsenceController
     {
         /// <summary>
@@ -24,6 +27,9 @@ namespace MediaTek86.controller
         /// </summary>
         private readonly MotifAccess motifAccess;
 
+        /// <summary>
+        /// Constructeur récupérant les accès aux données
+        /// </summary>
         public FrmAbsenceController()
         {
             personnelAccess = new PersonnelAccess();
@@ -31,21 +37,38 @@ namespace MediaTek86.controller
             motifAccess = new MotifAccess();
         }
 
+        /// <summary>
+        /// Récupère et retourne les infos des absences
+        /// </summary>
+        /// <param name="personnel"></param>
+        /// <returns></returns>
         public List<Absence> GetLesAbsences(Personnel personnel)
         {
             return absenceAccess.GetLesAbsences(personnel.Idpersonnel);
         }
 
+        /// <summary>
+        /// Ajout d'une absence
+        /// </summary>
+        /// <param name="absence"></param>
         public void AddAbsence(Absence absence)
         {
             absenceAccess.AddAbsence(absence);
         }
         
+        /// <summary>
+        /// Suppression d'une absence
+        /// </summary>
+        /// <param name="absence"></param>
         public void DelAbsence(Absence absence)
         {
             absenceAccess.DelAbsence(absence);
         }
-
+        /// <summary>
+        /// Modification d'une absence
+        /// </summary>
+        /// <param name="absence">Objet absence contenant les nouvelles informations</param>
+        /// <param name="ancienneDateDebut">Objet contenant la date de début originale de l'absence afin d'identifier la ligne à modifier dans la base de données</param>
         public void UpdateAbsences(Absence absence, DateTime ancienneDateDebut)
         {
             absenceAccess.UpdateAbsence(absence, ancienneDateDebut);
