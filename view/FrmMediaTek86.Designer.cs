@@ -80,6 +80,7 @@
             this.btnAnnulPersonnel.TabIndex = 10;
             this.btnAnnulPersonnel.Text = "annuler";
             this.btnAnnulPersonnel.UseVisualStyleBackColor = true;
+            this.btnAnnulPersonnel.Click += new System.EventHandler(this.btnAnnulPersonnel_Click);
             // 
             // btnEnregPersonnel
             // 
@@ -208,6 +209,7 @@
             this.btnSupprimerPersonnel.TabIndex = 2;
             this.btnSupprimerPersonnel.Text = "supprimer";
             this.btnSupprimerPersonnel.UseVisualStyleBackColor = true;
+            this.btnSupprimerPersonnel.Click += new System.EventHandler(this.btnSupprimerPersonnel_Click);
             // 
             // btnModifierPersonnel
             // 

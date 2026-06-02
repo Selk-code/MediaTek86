@@ -28,7 +28,7 @@ namespace MediaTek86.model
         public DateTime Datedebut { get; set; }
         public DateTime Datefin { get; set; }
         
-        public Motif Motif { get; }
+        public Motif Motif { get; set; }
 
 
        

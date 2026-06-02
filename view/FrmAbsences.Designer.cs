@@ -32,18 +32,18 @@
             this.btnAjouterAbsence = new System.Windows.Forms.Button();
             this.btnModifierAbsence = new System.Windows.Forms.Button();
             this.btnSupprimerAbsence = new System.Windows.Forms.Button();
-            this.grpAffichageAbsence = new System.Windows.Forms.GroupBox();
+            this.grbAffichageAbsence = new System.Windows.Forms.GroupBox();
             this.grbAjoutAbsence = new System.Windows.Forms.GroupBox();
+            this.dtpFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpDebut = new System.Windows.Forms.DateTimePicker();
             this.btnAnnulAbsence = new System.Windows.Forms.Button();
             this.btnEnregAbsence = new System.Windows.Forms.Button();
             this.cboService = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.dtpDebut = new System.Windows.Forms.DateTimePicker();
-            this.dtpFin = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).BeginInit();
-            this.grpAffichageAbsence.SuspendLayout();
+            this.grbAffichageAbsence.SuspendLayout();
             this.grbAjoutAbsence.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,18 +90,18 @@
             this.btnSupprimerAbsence.Text = "supprimer";
             this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
             // 
-            // grpAffichageAbsence
+            // grbAffichageAbsence
             // 
-            this.grpAffichageAbsence.Controls.Add(this.dgvAbsences);
-            this.grpAffichageAbsence.Controls.Add(this.btnSupprimerAbsence);
-            this.grpAffichageAbsence.Controls.Add(this.btnAjouterAbsence);
-            this.grpAffichageAbsence.Controls.Add(this.btnModifierAbsence);
-            this.grpAffichageAbsence.Location = new System.Drawing.Point(12, 12);
-            this.grpAffichageAbsence.Name = "grpAffichageAbsence";
-            this.grpAffichageAbsence.Size = new System.Drawing.Size(388, 260);
-            this.grpAffichageAbsence.TabIndex = 5;
-            this.grpAffichageAbsence.TabStop = false;
-            this.grpAffichageAbsence.Text = "Les absences";
+            this.grbAffichageAbsence.Controls.Add(this.dgvAbsences);
+            this.grbAffichageAbsence.Controls.Add(this.btnSupprimerAbsence);
+            this.grbAffichageAbsence.Controls.Add(this.btnAjouterAbsence);
+            this.grbAffichageAbsence.Controls.Add(this.btnModifierAbsence);
+            this.grbAffichageAbsence.Location = new System.Drawing.Point(12, 12);
+            this.grbAffichageAbsence.Name = "grbAffichageAbsence";
+            this.grbAffichageAbsence.Size = new System.Drawing.Size(388, 260);
+            this.grbAffichageAbsence.TabIndex = 5;
+            this.grbAffichageAbsence.TabStop = false;
+            this.grbAffichageAbsence.Text = "Les absences";
             // 
             // grbAjoutAbsence
             // 
@@ -120,6 +120,20 @@
             this.grbAjoutAbsence.TabStop = false;
             this.grbAjoutAbsence.Text = "ajouter une absence";
             // 
+            // dtpFin
+            // 
+            this.dtpFin.Location = new System.Drawing.Point(87, 45);
+            this.dtpFin.Name = "dtpFin";
+            this.dtpFin.Size = new System.Drawing.Size(245, 20);
+            this.dtpFin.TabIndex = 12;
+            // 
+            // dtpDebut
+            // 
+            this.dtpDebut.Location = new System.Drawing.Point(87, 19);
+            this.dtpDebut.Name = "dtpDebut";
+            this.dtpDebut.Size = new System.Drawing.Size(245, 20);
+            this.dtpDebut.TabIndex = 11;
+            // 
             // btnAnnulAbsence
             // 
             this.btnAnnulAbsence.Location = new System.Drawing.Point(87, 103);
@@ -128,6 +142,7 @@
             this.btnAnnulAbsence.TabIndex = 10;
             this.btnAnnulAbsence.Text = "annuler";
             this.btnAnnulAbsence.UseVisualStyleBackColor = true;
+            this.btnAnnulAbsence.Click += new System.EventHandler(this.btnAnnulAbsence_Click);
             // 
             // btnEnregAbsence
             // 
@@ -137,9 +152,11 @@
             this.btnEnregAbsence.TabIndex = 9;
             this.btnEnregAbsence.Text = "enregistrer";
             this.btnEnregAbsence.UseVisualStyleBackColor = true;
+            this.btnEnregAbsence.Click += new System.EventHandler(this.btnEnregAbsence_Click);
             // 
             // cboService
             // 
+            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboService.FormattingEnabled = true;
             this.cboService.Location = new System.Drawing.Point(87, 71);
             this.cboService.Name = "cboService";
@@ -173,31 +190,18 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "date de début";
             // 
-            // dtpDebut
-            // 
-            this.dtpDebut.Location = new System.Drawing.Point(87, 19);
-            this.dtpDebut.Name = "dtpDebut";
-            this.dtpDebut.Size = new System.Drawing.Size(245, 20);
-            this.dtpDebut.TabIndex = 11;
-            // 
-            // dtpFin
-            // 
-            this.dtpFin.Location = new System.Drawing.Point(87, 45);
-            this.dtpFin.Name = "dtpFin";
-            this.dtpFin.Size = new System.Drawing.Size(245, 20);
-            this.dtpFin.TabIndex = 12;
-            // 
             // FrmAbsences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(730, 464);
+            this.ClientSize = new System.Drawing.Size(418, 435);
             this.Controls.Add(this.grbAjoutAbsence);
-            this.Controls.Add(this.grpAffichageAbsence);
+            this.Controls.Add(this.grbAffichageAbsence);
             this.Name = "FrmAbsences";
             this.Text = "FrmAbsences";
+            this.Load += new System.EventHandler(this.FrmAbsences_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsences)).EndInit();
-            this.grpAffichageAbsence.ResumeLayout(false);
+            this.grbAffichageAbsence.ResumeLayout(false);
             this.grbAjoutAbsence.ResumeLayout(false);
             this.grbAjoutAbsence.PerformLayout();
             this.ResumeLayout(false);
@@ -210,7 +214,7 @@
         private System.Windows.Forms.Button btnAjouterAbsence;
         private System.Windows.Forms.Button btnModifierAbsence;
         private System.Windows.Forms.Button btnSupprimerAbsence;
-        private System.Windows.Forms.GroupBox grpAffichageAbsence;
+        private System.Windows.Forms.GroupBox grbAffichageAbsence;
         private System.Windows.Forms.GroupBox grbAjoutAbsence;
         private System.Windows.Forms.Button btnAnnulAbsence;
         private System.Windows.Forms.Button btnEnregAbsence;

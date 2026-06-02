@@ -44,6 +44,7 @@ namespace MediaTek86.controller
             return personnelAccess.GetLesPersonnels();
         }
 
+        /*
         /// <summary>
         /// Récupère et retourne les infos des motifs
         /// </summary>
@@ -52,6 +53,8 @@ namespace MediaTek86.controller
         {
             return motifAccess.GetLesMotifs();
         }
+
+        */
 
         /// <summary>
         /// Récupère et retourne les infos des services
@@ -62,14 +65,31 @@ namespace MediaTek86.controller
             return serviceAccess.GetLesServices();
         }
 
+        /// <summary>
+        /// Ajout d'un personnel
+        /// </summary>
+        /// <param name="personnel"></param>
         public void AddPersonnel(Personnel personnel)
         {
             personnelAccess.AddPersonnel(personnel);
         }
 
+        /// <summary>
+        /// Modification d'un personnel
+        /// </summary>
+        /// <param name="personnel"></param>
         public void UpdatePersonnel(Personnel personnel) 
         {
             personnelAccess.UpdatePersonnel(personnel);
+        }
+
+        /// <summary>
+        /// Suppression d'un personnel
+        /// </summary>
+        /// <param name="personnel"></param>
+        public void DelPersonnel(Personnel personnel) 
+        {
+            personnelAccess.DelPersonnel(personnel);
         }
 
         

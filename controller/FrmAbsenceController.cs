@@ -35,5 +35,21 @@ namespace MediaTek86.controller
         {
             return absenceAccess.GetLesAbsences(personnel.Idpersonnel);
         }
+
+        public void UpdateAbsences()
+        {
+            absenceAccess.
+        }
+
+        /// <summary>
+        /// Récupère et retourne les infos des motifs
+        /// </summary>
+        /// <returns></returns>
+        public List<Motif> GetLesMotifs()
+        {
+            return motifAccess.GetLesMotifs();
+        }
+
+
     }
 }

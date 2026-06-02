@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MediaTek86.dal
 {
@@ -27,7 +28,7 @@ namespace MediaTek86.dal
             List<Motif> lesMotifs = new List<Motif>();
             if (access.Manager != null)
             {
-                string req = "select * from motif order by nom;";
+                string req = "select * from motif order by libelle;";
                 try
                 {
                     List<Object[]> records = access.Manager.ReqSelect(req);
@@ -42,6 +43,7 @@ namespace MediaTek86.dal
                 }
                 catch (Exception e)
                 {
+                    MessageBox.Show(e.Message);
                     Console.WriteLine(e.Message);
                     Environment.Exit(0);
                 }
