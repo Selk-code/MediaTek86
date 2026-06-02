@@ -12,4 +12,4 @@ médiathèque ainsi que leurs absences.
 ### Structure de la BDD
 Voici la structure de la BDD qui est au format MySQL :
 
-*(insérer ici une capture ou image du MCD/schéma de ta BDD)*
+<img width="1224" height="609" alt="image" src="https://github.com/user-attachments/assets/ab4efbf9-1bac-4e45-9d2a-13ffc34f2bdd" />
