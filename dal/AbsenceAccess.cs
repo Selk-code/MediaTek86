@@ -66,26 +66,39 @@ namespace MediaTek86.dal
         {
             if (access.Manager != null)
             {
-                string req = "insert into absence(datedebut, datefin, idmotif) ";
-                req += "values(@datedebut, @datefin, @idmotif);";
-                Dictionary<string, object> parameters = new Dictionary<string, object>();
-                parameters.Add("@datedebut", absence.Datedebut);
-                parameters.Add("@datefin", absence.Datefin);
-                parameters.Add("@idmotif", absence.Motif);
-            }
-        }
-
-        public void UpdateAbsence(Absence absence)
-        {
-            if (access.Manager != null)
-            {
-                string req = "update absence set datedebut = @datedebut, datefin = @datefin, idmotif = @motif ";
-                req += "where idpersonnel = @idpersonnel;";
+                string req = "insert into absence(idpersonnel, datedebut, datefin, idmotif) ";
+                req += "values(@idpersonnel, @datedebut, @datefin, @idmotif);";
                 Dictionary<string, object> parameters = new Dictionary<string, object>();
                 parameters.Add("@idpersonnel", absence.Idpersonnel);
                 parameters.Add("@datedebut", absence.Datedebut);
                 parameters.Add("@datefin", absence.Datefin);
-                parameters.Add("@idmotif", absence.Motif);
+                parameters.Add("@idmotif", absence.Motif.Idmotif);
+
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+        }
+
+        public void UpdateAbsence(Absence absence, DateTime ancienneDateDebut)
+        {
+            if (access.Manager != null)
+            {
+                string req = "update absence set datedebut = @datedebut, datefin = @datefin, idmotif = @motif ";
+                req += "where idpersonnel = @idpersonnel and datedebut = @ancienneDateDebut;";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absence.Idpersonnel);
+                parameters.Add("@datedebut", absence.Datedebut);
+                parameters.Add("@datefin", absence.Datefin);
+                parameters.Add("@motif", absence.Motif.Idmotif);
+                parameters.Add("@ancienneDateDebut", ancienneDateDebut);
 
                 try
                 {
@@ -98,6 +111,29 @@ namespace MediaTek86.dal
                     Environment.Exit(0);
                 }
             }
+        }
+
+        public void DelAbsence(Absence absence)
+        {
+            if (access.Manager != null) 
+            {
+                string req = "delete from absence where idpersonnel = @idpersonnel and datedebut = @datedebut";
+                Dictionary<string, object> parameters = new Dictionary<string, object>();
+                parameters.Add("@idpersonnel", absence.Idpersonnel);
+                parameters.Add("@datedebut", absence.Datedebut);
+
+                try
+                {
+                    access.Manager.ReqUpdate(req, parameters);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                    Console.WriteLine(e.Message);
+                    Environment.Exit(0);
+                }
+            }
+
         }
     }
 }

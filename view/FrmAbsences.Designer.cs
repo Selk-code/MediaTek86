@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvAbsences = new System.Windows.Forms.DataGridView();
-            this.btnAjouterAbsence = new System.Windows.Forms.Button();
             this.btnModifierAbsence = new System.Windows.Forms.Button();
             this.btnSupprimerAbsence = new System.Windows.Forms.Button();
             this.grbAffichageAbsence = new System.Windows.Forms.GroupBox();
@@ -38,7 +37,7 @@
             this.dtpDebut = new System.Windows.Forms.DateTimePicker();
             this.btnAnnulAbsence = new System.Windows.Forms.Button();
             this.btnEnregAbsence = new System.Windows.Forms.Button();
-            this.cboService = new System.Windows.Forms.ComboBox();
+            this.cboMotif = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -63,38 +62,30 @@
             this.dgvAbsences.Size = new System.Drawing.Size(357, 206);
             this.dgvAbsences.TabIndex = 1;
             // 
-            // btnAjouterAbsence
-            // 
-            this.btnAjouterAbsence.Location = new System.Drawing.Point(6, 231);
-            this.btnAjouterAbsence.Name = "btnAjouterAbsence";
-            this.btnAjouterAbsence.Size = new System.Drawing.Size(75, 23);
-            this.btnAjouterAbsence.TabIndex = 2;
-            this.btnAjouterAbsence.Text = "ajouter";
-            this.btnAjouterAbsence.UseVisualStyleBackColor = true;
-            // 
             // btnModifierAbsence
             // 
-            this.btnModifierAbsence.Location = new System.Drawing.Point(87, 231);
+            this.btnModifierAbsence.Location = new System.Drawing.Point(10, 231);
             this.btnModifierAbsence.Name = "btnModifierAbsence";
             this.btnModifierAbsence.Size = new System.Drawing.Size(75, 23);
             this.btnModifierAbsence.TabIndex = 3;
             this.btnModifierAbsence.Text = "modfier";
             this.btnModifierAbsence.UseVisualStyleBackColor = true;
+            this.btnModifierAbsence.Click += new System.EventHandler(this.btnModifierAbsence_Click);
             // 
             // btnSupprimerAbsence
             // 
-            this.btnSupprimerAbsence.Location = new System.Drawing.Point(168, 231);
+            this.btnSupprimerAbsence.Location = new System.Drawing.Point(91, 231);
             this.btnSupprimerAbsence.Name = "btnSupprimerAbsence";
             this.btnSupprimerAbsence.Size = new System.Drawing.Size(75, 23);
             this.btnSupprimerAbsence.TabIndex = 4;
             this.btnSupprimerAbsence.Text = "supprimer";
             this.btnSupprimerAbsence.UseVisualStyleBackColor = true;
+            this.btnSupprimerAbsence.Click += new System.EventHandler(this.btnSupprimerAbsence_Click);
             // 
             // grbAffichageAbsence
             // 
             this.grbAffichageAbsence.Controls.Add(this.dgvAbsences);
             this.grbAffichageAbsence.Controls.Add(this.btnSupprimerAbsence);
-            this.grbAffichageAbsence.Controls.Add(this.btnAjouterAbsence);
             this.grbAffichageAbsence.Controls.Add(this.btnModifierAbsence);
             this.grbAffichageAbsence.Location = new System.Drawing.Point(12, 12);
             this.grbAffichageAbsence.Name = "grbAffichageAbsence";
@@ -109,7 +100,7 @@
             this.grbAjoutAbsence.Controls.Add(this.dtpDebut);
             this.grbAjoutAbsence.Controls.Add(this.btnAnnulAbsence);
             this.grbAjoutAbsence.Controls.Add(this.btnEnregAbsence);
-            this.grbAjoutAbsence.Controls.Add(this.cboService);
+            this.grbAjoutAbsence.Controls.Add(this.cboMotif);
             this.grbAjoutAbsence.Controls.Add(this.label5);
             this.grbAjoutAbsence.Controls.Add(this.label2);
             this.grbAjoutAbsence.Controls.Add(this.label1);
@@ -154,23 +145,23 @@
             this.btnEnregAbsence.UseVisualStyleBackColor = true;
             this.btnEnregAbsence.Click += new System.EventHandler(this.btnEnregAbsence_Click);
             // 
-            // cboService
+            // cboMotif
             // 
-            this.cboService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboService.FormattingEnabled = true;
-            this.cboService.Location = new System.Drawing.Point(87, 71);
-            this.cboService.Name = "cboService";
-            this.cboService.Size = new System.Drawing.Size(245, 21);
-            this.cboService.TabIndex = 8;
+            this.cboMotif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMotif.FormattingEnabled = true;
+            this.cboMotif.Location = new System.Drawing.Point(87, 71);
+            this.cboMotif.Name = "cboMotif";
+            this.cboMotif.Size = new System.Drawing.Size(245, 21);
+            this.cboMotif.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 74);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(41, 13);
+            this.label5.Size = new System.Drawing.Size(29, 13);
             this.label5.TabIndex = 8;
-            this.label5.Text = "service";
+            this.label5.Text = "motif";
             // 
             // label2
             // 
@@ -211,14 +202,13 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvAbsences;
-        private System.Windows.Forms.Button btnAjouterAbsence;
         private System.Windows.Forms.Button btnModifierAbsence;
         private System.Windows.Forms.Button btnSupprimerAbsence;
         private System.Windows.Forms.GroupBox grbAffichageAbsence;
         private System.Windows.Forms.GroupBox grbAjoutAbsence;
         private System.Windows.Forms.Button btnAnnulAbsence;
         private System.Windows.Forms.Button btnEnregAbsence;
-        private System.Windows.Forms.ComboBox cboService;
+        private System.Windows.Forms.ComboBox cboMotif;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
