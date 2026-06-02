@@ -13,8 +13,10 @@ using MediaTek86.view;
 
 namespace MediaTek86
 {
+   
+
     /// <summary>
-    /// Fenêtre principale affichant les personnels et leurs services
+    /// Fenêtre principal affichant les personnels et leurs services
     /// </summary>
     public partial class FrmMediaTek86 : Form
     {

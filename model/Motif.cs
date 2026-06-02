@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace MediaTek86.model
 {
+    /// <summary>
+    /// Classe contenant les informations d'un motif
+    /// </summary>
     public class Motif
     {
 
